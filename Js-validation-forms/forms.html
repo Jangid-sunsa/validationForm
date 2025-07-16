@@ -19,215 +19,241 @@
     </style>
   </head>
   <body class="container mx-auto">
-        <form
-          id="contact_form"
-          action="#"
-          class="bg-[#F1F3F7] py-10 my-10 rounded-xl"
-          onsubmit="return formsValidation()" 
-          onreset="resetErrors()"
-        >
-          <div class="flex flex-wrap px-5 mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Full name</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fname"
-              />
-              <span id="name-error" class="error-message text-red-600"></span>
-            </div>
+    <form
+      id="contact_form"
+      action="#"
+      class="bg-[#F1F3F7] py-10 my-10 rounded-xl"
+      onsubmit="return formsValidation()"
+      onreset="resetErrors()"
+    >
+      <div class="flex flex-wrap px-5 mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Full name</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fname"
+          />
+          <span id="name-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Email address</label
-              >
-              <input
-                type="email"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="femail"
-              />
-              <span id="email-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="femail"
+          />
+          <span id="email-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Phone number</label
-              >
-              <input
-                type="tel"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fphone"
-              />
-              <span id="phone-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Phone number</label
+          >
+          <input
+            type="tel"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fphone"
+          />
+          <span id="phone-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Date of birth</label
-              >
-              <input
-                type="date"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fdob"
-              />
-              <span id="dob-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Date of birth</label
+          >
+          <input
+            type="date"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fdob"
+          />
+          <span id="dob-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Gender</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fgender"
-              />
-              <span id="gender-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Gender</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fgender"
+          />
+          <span id="gender-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >City</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fcity"
-              />
-              <span id="city-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >City</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fcity"
+          />
+          <span id="city-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >State</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fstate"
-              />
-              <span id="state-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >State</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fstate"
+          />
+          <span id="state-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Country</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="fcountry"
-              />
-              <span id="country-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Country</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="fcountry"
+          />
+          <span id="country-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Address</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                id="faddress"
-              />
-              <span id="address-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Address</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+            id="faddress"
+          />
+          <span id="address-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Message</label
-              >
-              <input
-                type="text"
-                class="w-full bg-none text-[#2E2F35] font-medium border-b border-gray-300 py-3 mb-3 focus:outline-none"
-                id="fmssg"
-              />
-              <span id="message-error" class="error-message text-red-600"></span>
-            </div>
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Message</label
+          >
+          <input
+            type="text"
+            class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 focus:outline-none"
+            id="fmssg"
+          />
+          <span id="message-error" class="error-message text-red-600"></span>
+        </div>
 
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Request a counselling session</label
-              >
-              <div class="flex flex-col">
-                <div class="flex gap-5">
-                  <div class="flex items-center my-5">
-                    <input
-                      type="radio"
-                      id="fyes"
-                      name="request"
-                      value="yes"
-                      class="h-4 w-4 text-green-600 focus:ring-green-800"
-    
-                    />
-                    <span id="radioY-error" class="error-message text-red-600"></span>
-                    <label for="fyes" class="ml-2 text-gray-700">Yes</label>
-                  </div>
-                  <div class="flex items-center my-5">
-                    <input
-                      type="radio"
-                      id="fno"
-                      name="request"
-                      value="no"
-                      class="h-4 w-4 text-green-600 focus:ring-green-500"
-    
-                    />
-                    <label for="fno" class="ml-2 text-gray-700">No</label>
-                  </div>
-                </div>
-                <span id="radioN-error" class="error-message text-red-600"></span>
-              </div>
-            </div>
-
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <label class="text-base text-[#808080] py-3" for="form first name"
-                >Upload your CV/Resume</label
-              >
-              <div class="flex gap-2">
-                <img
-                  src="images/upload.svg"
-                  class="mb-2"
-                  alt="image-upload-icon"
-                />
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Request a counselling session</label
+          >
+          <div class="flex flex-col">
+            <div class="flex gap-5">
+              <div class="flex items-center my-5">
                 <input
-                  type="file"
-                  class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
-                  id="fupload"
-
+                  type="radio"
+                  id="fyes"
+                  name="request"
+                  value="yes"
+                  class="h-4 w-4 text-green-600 focus:ring-green-800"
                 />
-                <span id="upload-error" class="error-message text-red-600"></span>
+                <span
+                  id="radioY-error"
+                  class="error-message text-red-600"
+                ></span>
+                <label for="fyes" class="ml-2 text-gray-700">Yes</label>
               </div>
-            </div>
-
-            <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
-              <div class="flex gap-2 mb-5">
+              <div class="flex items-center my-5">
                 <input
-                  type="checkbox"
-                  id="fcheckbox"
-                  class="border border-#4CAF50"
-
+                  type="radio"
+                  id="fno"
+                  name="request"
+                  value="no"
+                  class="h-4 w-4 text-green-600 focus:ring-green-500"
                 />
-                <label class="text-base text-[#808080]" for="checkbox"
-                  >Agree terms and conditions</label
-                >
-                <span id="checkbox-error" class="error-message text-red-600"></span>
+                <label for="fno" class="ml-2 text-gray-700">No</label>
               </div>
             </div>
+            <span id="radioN-error" class="error-message text-red-600"></span>
           </div>
-          <div class="px-auto md:w-1/2 my-6 mb-0 lg:w-full mx-10 my-6">
-            <button
-              class="bg-[#28DDB2] text-white py-4 px-8 md:px-8 lg:px-20 my-5 cursor-pointer"
-              type="submit"
-              id="submit-btn"
+        </div>
+
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <label class="text-base text-[#808080] py-3" for="form first name"
+            >Upload your CV/Resume</label
+          >
+          <div class="flex gap-2">
+            <img src="images/upload.svg" class="mb-2" alt="image-upload-icon" />
+            <input
+              type="file"
+              class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
+              id="file"
+              accept=".doc,.svg,.pdf"
+            />
+          </div>
+          <span id="file-error" class="error-message text-red-600"></span>
+        </div>
+
+        <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
+          <div class="flex gap-2 mb-5">
+            <input
+              type="checkbox"
+              id="checkbox"
+              class="border border-#4CAF50"
+            />
+            <label class="text-base text-[#808080]" for="checkbox"
+              >Agree terms and conditions</label
             >
-              Submit Information
-            </button>
+            <span id="checkbox-error" class="error-message text-red-600"></span>
           </div>
-        </form>
+        </div>
       </div>
-    </section>
+      <div class="px-auto md:w-1/2 my-6 mb-0 lg:w-full mx-10 my-6">
+        <button
+          class="bg-[#28DDB2] text-white py-4 px-8 md:px-8 lg:px-20 my-5 cursor-pointer"
+          type="submit"
+          id="submit-btn"
+        >
+          Submit Information
+        </button>
+      </div>
+    </form>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-black">
+      <tr>
+        <th class="border border-black p-5">Name</th>
+        <th class="border border-black p-5">Email</th>
+        <th class="border border-black p-5">Phone</th>
+        <th class="border border-black p-5">Date of Birth</th>
+        <th class="border border-black p-5">Gender</th>
+        <th class="border border-black p-5">City</th>
+        <th class="border border-black p-5">State</th>
+        <th class="border border-black p-5">Country</th>
+        <th class="border border-black p-5">Address</th>
+        <th class="border border-black p-5">Message</th>
+        <th class="border border-black p-5">Counseling Session</th>
+        <th class="border border-black p-5">File</th>
+        <th class="border border-black p-5">Checkbox</th>
+      </tr>
+      <tr>
+        <td class="border border-black p-5">Sunil</td>
+        <td class="border border-black p-5">sunil@example.com</td>
+        <td class="border border-black p-5">1234567890</td>
+        <td class="border border-black p-5">01/01/1990</td>
+        <td class="border border-black p-5">Male</td>
+        <td class="border border-black p-5">Jodhpur</td>
+        <td class="border border-black p-5">Rajasthan</td>
+        <td class="border border-black p-5">India</td>
+        <td class="border border-black p-5">Boranada, Jodhpur</td>
+        <td class="border border-black p-5">Hiii</td>
+        <td class="border border-black p-5">True</td>
+        <td class="border border-black p-5">Resume</td>
+        <td class="border border-black p-5">Checked</td>
+      </tr>
+    </table>
     <script src="validation_forms.js"></script>
   </body>
 </html>
