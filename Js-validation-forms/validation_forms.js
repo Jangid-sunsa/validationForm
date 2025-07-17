@@ -63,7 +63,9 @@ function formsValidation() {
     Country: country,
     Address: address,
     Message: message,
-    Counseling_Session : counseling,  
+    Counseling: counseling,  
+    FileName: fileInput, 
+    Checked:  check,
   };
 
   let isValid = true;
@@ -83,7 +85,7 @@ function formsValidation() {
   if (phone === "") {
     phoneErr.textContent = "Please enter your phone no.";
     isValid = false;
-  } else if (phone.length > 10 || phone.length < 10) {
+  } else if (phone.length < 10) {
     phoneErr.textContent = "Please enter your valid phone no.";
     isValid = false;
   }
@@ -156,11 +158,11 @@ function formsValidation() {
     const file = fileInput[0];
     const size = file.size / 1024 / 1024;
     const fileName = file.name;
-    const allowedExtensions = /(\.doc|\.docx|\.pdf)$/i;
+    const allowedExtensions = /(\.pdf)$/i;
 
     if (!allowedExtensions.exec(fileName)) {
       fileErr.textContent =
-        "Invalid file type. Only .doc, .docx, .pdf allowed.";
+        "Invalid file type. Only .pdf allowed.";
       fileInput.value = "";
       isValid = false;
     } else if (size > 2) {
@@ -180,7 +182,7 @@ function formsValidation() {
     isValid = false;
   }
 
-  // localstorage wala part
+  // this part of ls
   if (isValid) {
     let locName = JSON.parse(localStorage.getItem("formData")) || [];
     locName.push(formData);
