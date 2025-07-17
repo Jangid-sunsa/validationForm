@@ -1,0 +1,80 @@
+HTML 
+<form id="myForm">
+  <input type="text" id="name" placeholder="Enter Name" required />
+  <input type="email" id="email" placeholder="Enter Email" required />
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Stored Data</h3>
+<table border="1" id="dataTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<input type="text"   />
+<input type="email"  />
+<input type="text"   />
+<input type="date"   />
+<input type="text"   />
+<input type="text"   />
+<input type="text"   />
+<input type="text"   />
+<input type="text"   />
+<input type="text"   />
+<input type="file"   />
+
+JS
+
+<script>
+  const form = document.getElementById("myForm");
+  const dataTableBody = document.querySelector("#dataTable tbody");
+
+  // Show data from localStorage on page load
+  window.onload = showDataFromLocalStorage;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Get form values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    // Create an object
+    const formData = { name, email };
+
+    // Get old data
+    let storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+    // Add new data
+    storedData.push(formData);
+  
+    // Save to localStorage
+    localStorage.setItem("formData", JSON.stringify(storedData));
+
+    // Reset form
+    form.reset();
+
+    // Show updated data
+    showDataFromLocalStorage();
+  });
+
+  function showDataFromLocalStorage() {
+    const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+
+    // Clear previous table rows
+    dataTableBody.innerHTML = "";
+
+    // Create rows from data
+    storedData.forEach((item) => {
+      const row = `<tr>
+                     <td>${item.name}</td>
+                     <td>${item.email}</td>
+                   </tr>`;
+      dataTableBody.innerHTML += row;
+    });
+  }
+</script>
