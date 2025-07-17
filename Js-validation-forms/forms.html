@@ -35,6 +35,7 @@
             type="text"
             class="w-full bg-none border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
             id="fname"
+            oninput="this.value = this.value.replace(/[^a-zA-Z ]/g, '')"
           />
           <span id="name-error" class="error-message text-red-600"></span>
         </div>
@@ -59,6 +60,8 @@
             type="tel"
             class="w-full bg-none text-[#2E2F35] border-b border-gray-300 py-3 mb-3 leading-tight focus:outline-none"
             id="fphone"
+            maxlength="10"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')"
           />
           <span id="phone-error" class="error-message text-red-600"></span>
         </div>
@@ -195,7 +198,7 @@
               accept=".doc,.svg,.pdf"
             />
           </div>
-          <span id="file-error" class="error-message text-red-600"></span>
+          <span id="file-error" class="err or-message text-red-600"></span>
         </div>
 
         <div class="w-full md:w-1/2 px-4 my-6 md:mb-0">
@@ -222,37 +225,53 @@
         </button>
       </div>
     </form>
-    <table class="w-full text-sm text-left text-gray-500 dark:text-black">
+    <table
+      class="container mx-auto w-full text-sm text-left text-gray-500 dark:text-black"
+      id="dataTable"
+    >
       <tr>
-        <th class="border border-black p-5">Name</th>
-        <th class="border border-black p-5">Email</th>
-        <th class="border border-black p-5">Phone</th>
-        <th class="border border-black p-5">Date of Birth</th>
-        <th class="border border-black p-5">Gender</th>
-        <th class="border border-black p-5">City</th>
-        <th class="border border-black p-5">State</th>
-        <th class="border border-black p-5">Country</th>
-        <th class="border border-black p-5">Address</th>
-        <th class="border border-black p-5">Message</th>
-        <th class="border border-black p-5">Counseling Session</th>
-        <th class="border border-black p-5">File</th>
-        <th class="border border-black p-5">Checkbox</th>
+        <th class="text-center border border-black p-1">S.N.</th>
+        <th class="text-center border border-black p-5">Name</th>
+        <th class="text-center border border-black p-5">Email</th>
+        <th class="text-center border border-black p-5">Phone</th>
+        <th class="text-center border border-black p-5">Date of Birth</th>
+        <th class="text-center border border-black p-2">Gender</th>
+        <th class="text-center border border-black p-5">City</th>
+        <th class="text-center border border-black p-5">State</th>
+        <th class="text-center border border-black p-5">Country</th>
+        <th class="text-center border border-black p-5">Address</th>
+        <th class="text-center border border-black p-5">Message</th>
+        <th class="text-center border border-black p-5">File</th>
+        <th class="text-center border border-black p-5">Action</th>
       </tr>
-      <tr>
-        <td class="border border-black p-5">Sunil</td>
-        <td class="border border-black p-5">sunil@example.com</td>
-        <td class="border border-black p-5">1234567890</td>
-        <td class="border border-black p-5">01/01/1990</td>
-        <td class="border border-black p-5">Male</td>
-        <td class="border border-black p-5">Jodhpur</td>
-        <td class="border border-black p-5">Rajasthan</td>
-        <td class="border border-black p-5">India</td>
-        <td class="border border-black p-5">Boranada, Jodhpur</td>
-        <td class="border border-black p-5">Hiii</td>
-        <td class="border border-black p-5">True</td>
-        <td class="border border-black p-5">Resume</td>
-        <td class="border border-black p-5">Checked</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5"></td>
+          <td class="text-center border border-black p-5">
+            <button type="submit">
+              <i
+                class="fa-solid fa-pen-to-square text-2xl px-2 active:text-red-600 cursor-pointer"
+              ></i>
+            </button>
+            <button type="submit">
+              <i
+                class="fa-solid fa-trash text-2xl px-2 active:text-red-600 cursor-pointer"
+              ></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <script src="validation_forms.js"></script>
   </body>
