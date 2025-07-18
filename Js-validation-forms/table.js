@@ -91,3 +91,40 @@ function editRow(index) {
 
   editIndex = index;
 }
+
+
+
+
+form.addEventListener("submit", function (e) {
+  debugger
+  e.preventDefault();
+  const isValid = formsValidation();
+
+  if (!isValid) return;
+
+  const formData = {
+    name: document.getElementById("fname").value,
+    email: document.getElementById("femail").value,
+    phone: document.getElementById("fphone").value,
+    dob: document.getElementById("fdob").value,
+    gender: document.getElementById("fgender").value,
+    city: document.getElementById("fcity").value,
+    state: document.getElementById("fstate").value,
+    country: document.getElementById("fcountry").value,
+    address: document.getElementById("faddress").value,
+    message: document.getElementById("fmssg").value,
+    file: document.getElementById("file").value.split("\\").pop(),
+  };
+
+  let storedData = JSON.parse(localStorage.getItem("formData")) || [];
+  if (editIndex !== null) {
+    storedData[editIndex] = formData;
+    editIndex = null;
+  } else {
+    storedData.push(formData);
+  }
+
+  localStorage.setItem("formData", JSON.stringify(storedData));
+  form.reset();
+  showDataFromLocalStorage();
+});
