@@ -1,3 +1,22 @@
+let editIndex = null;
+
+function resetErrors() {
+  document.getElementById("name-error").textContent = "";
+  document.getElementById("email-error").textContent = "";
+  document.getElementById("phone-error").textContent = "";
+  document.getElementById("dob-error").textContent = "";
+  document.getElementById("gender-error").textContent = "";
+  document.getElementById("city-error").textContent = "";
+  document.getElementById("state-error").textContent = "";
+  document.getElementById("country-error").textContent = "";
+  document.getElementById("address-error").textContent = "";
+  document.getElementById("message-error").textContent = "";
+  document.getElementById("radioY-error").textContent = "";
+  document.getElementById("radioN-error").textContent = "";
+  document.getElementById("file-error").textContent = "";
+  document.getElementById("checkbox-error").textContent = "";
+}
+
 function formsValidation() {
   const name = document.getElementById("fname").value;
   const email = document.getElementById("femail").value;
@@ -29,20 +48,22 @@ function formsValidation() {
   const fileErr = document.getElementById("file-error");
   const checkErr = document.getElementById("checkbox-error");
 
-  nameErr.textContent = "";
-  emailErr.textContent = "";
-  phoneErr.textContent = "";
-  dobErr.textContent = "";
-  genderErr.textContent = "";
-  cityErr.textContent = "";
-  stateErr.textContent = "";
-  countryErr.textContent = "";
-  addressErr.textContent = "";
-  messageErr.textContent = "";
-  radio_yesErr.textContent = "";
-  radio_noErr.textContent = "";
-  fileErr.textContent = "";
-  checkErr.textContent = "";
+  // nameErr.textContent = "";
+  // emailErr.textContent = "";
+  // phoneErr.textContent = "";
+  // dobErr.textContent = "";
+  // genderErr.textContent = "";
+  // cityErr.textContent = "";
+  // stateErr.textContent = "";
+  // countryErr.textContent = "";
+  // addressErr.textContent = "";
+  // messageErr.textContent = "";
+  // radio_yesErr.textContent = "";
+  // radio_noErr.textContent = "";
+  // fileErr.textContent = "";
+  // checkErr.textContent = "";
+
+  // resetErrors();
 
   let counseling = "";
   if (radio_yes) {
@@ -200,9 +221,24 @@ function formsValidation() {
     };
 
     let storedData = JSON.parse(localStorage.getItem("formData")) || [];
-    storedData.push(formData);
+
+    if (editIndex !== null) {
+      // Update existing entry
+      storedData[editIndex] = formData;
+      editIndex = null; // Reset edit mode
+    } else {
+      // Add new entry
+      storedData.push(formData);
+    }
+
     localStorage.setItem("formData", JSON.stringify(storedData));
-    alert("form submitted successfully");
+    alert(
+      editIndex === null
+        ? "Form submitted successfully"
+        : "Form updated successfully"
+    );
+    document.getElementById("contact_form").reset();
+    resetErrors();
     displayData();
     return true;
   } else {
@@ -210,8 +246,8 @@ function formsValidation() {
   }
 }
 
-window.onload = function displayData() {
-  const storedData = JSON.parse(localStorage.getItem("formData"));
+function displayData() {
+  const storedData = JSON.parse(localStorage.getItem("formData")) || [];
   // console.log(storedData);
 
   const tableBody = document.querySelector("#dataTable tbody");
@@ -235,10 +271,26 @@ window.onload = function displayData() {
       <td class="text-center border border-black p-1">${item.Message}</td>
       <td class="text-center border border-black p-1">${item.FileName}</td>
       <td class="text-center border border-black p-1">
-        <button onclick="editRow(${index})"><i class="fa-solid fa-pen-to-square text-2xl px-2 active:text-blue-600 cursor-pointer"></i></button>
-        <button onclick="deleteRow(${index})"><i class="fa-solid fa-trash text-2xl px-2 active:text-red-600 cursor-pointer"></i></button>
+        <button type="button" onclick="editRow(${index})"><i class="fa-solid fa-pen-to-square text-2xl px-2 active:text-blue-600 cursor-pointer"></i></button>
+        <button type="button" onclick="deleteRow(${index})"><i class="fa-solid fa-trash text-2xl px-2 active:text-red-600 cursor-pointer"></i></button>
       </td>
       `;
     tableBody.appendChild(row);
   });
+}
+
+function editRow(index) {
+  console.log("Edit clicked", index);
+  // alert("heelo");
+}
+
+function deleteRow(index) {
+  const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+  storedData.splice(index, 1);
+  localStorage.setItem("formData", JSON.stringify(storedData));
+  displayData();
+}
+
+window.onload = function () {
+  displayData();
 };
