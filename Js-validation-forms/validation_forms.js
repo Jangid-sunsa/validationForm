@@ -48,23 +48,6 @@ function formsValidation() {
   const fileErr = document.getElementById("file-error");
   const checkErr = document.getElementById("checkbox-error");
 
-  // nameErr.textContent = "";
-  // emailErr.textContent = "";
-  // phoneErr.textContent = "";
-  // dobErr.textContent = "";
-  // genderErr.textContent = "";
-  // cityErr.textContent = "";
-  // stateErr.textContent = "";
-  // countryErr.textContent = "";
-  // addressErr.textContent = "";
-  // messageErr.textContent = "";
-  // radio_yesErr.textContent = "";
-  // radio_noErr.textContent = "";
-  // fileErr.textContent = "";
-  // checkErr.textContent = "";
-
-  // resetErrors();
-
   let counseling = "";
   if (radio_yes) {
     counseling = "Yes";
@@ -143,12 +126,6 @@ function formsValidation() {
     isValid = false;
   }
 
-  // form radio btn for Yes / No
-  // if (!fyes.checked && !fno.checked) {
-  //   radio_noErr.textContent = "Choose one.";
-  //   isValid = false;
-  // }
-
   if (!radio_yes && !radio_no) {
     radio_noErr.textContent = "Choose one.";
     isValid = false;
@@ -175,32 +152,11 @@ function formsValidation() {
       fileErr.textContent = "";
     }
   }
-  // else if (size > 4) {
-  //   fileErr.textContent = "File must be less than 4 MB";
-  //   isValid = false;
-  // }
 
   if (!check) {
     checkErr.textContent = "Checked compulsorry";
     isValid = false;
   }
-
-  // function resetErrors() {
-  //   nameErr = document.getElementById("name-error").textContent = "";
-  //   emailErr = document.getElementById("email-error").textContent = "";
-  //   phoneErr = document.getElementById("phone-error").textContent = "";
-  //   dobErr = document.getElementById("dob-error").textContent = "";
-  //   genderErr = document.getElementById("gender-error").textContent = "";
-  //   cityErr = document.getElementById("city-error").textContent = "";
-  //   stateErr = document.getElementById("state-error").textContent = "";
-  //   countryErr = document.getElementById("country-error").textContent = "";
-  //   addressErr = document.getElementById("address-error").textContent = "";
-  //   messageErr = document.getElementById("message-error").textContent = "";
-  //   radio_yesErr = document.getElementById("radioY-error").textContent = "";
-  //   radio_noErr = document.getElementById("radioN-error").textContent = "";
-  //   fileErr = document.getElementById("file-error").textContent = "";
-  //   checkErr = document.getElementById("checkbox-error").textContent = "";
-  // }
 
   // this part of ls
   if (isValid) {
@@ -223,20 +179,16 @@ function formsValidation() {
     let storedData = JSON.parse(localStorage.getItem("formData")) || [];
 
     if (editIndex !== null) {
-      // Update existing entry
       storedData[editIndex] = formData;
-      editIndex = null; // Reset edit mode
+
+      alert("Form updated successfully"); 
+      editIndex = null;
     } else {
-      // Add new entry
       storedData.push(formData);
+      alert("Form submitted successfully");
     }
 
     localStorage.setItem("formData", JSON.stringify(storedData));
-    alert(
-      editIndex === null
-        ? "Form submitted successfully"
-        : "Form updated successfully"
-    );
     document.getElementById("contact_form").reset();
     resetErrors();
     displayData();
@@ -280,8 +232,22 @@ function displayData() {
 }
 
 function editRow(index) {
-  console.log("Edit clicked", index);
-  // alert("heelo");
+  const storedData = JSON.parse(localStorage.getItem("formData")) || [];
+  const data = storedData[index];
+
+  document.getElementById("fname").value = data.Name;
+  document.getElementById("femail").value = data.Email;
+  document.getElementById("fphone").value = data.Phone;
+  document.getElementById("fdob").value = data.DOB;
+  document.getElementById("fgender").value = data.Gender;
+  document.getElementById("fcity").value = data.City;
+  document.getElementById("fstate").value = data.State;
+  document.getElementById("fcountry").value = data.Country;
+  document.getElementById("faddress").value = data.Address;
+  document.getElementById("fmssg").value = data.Message;
+  document.getElementById("file").file = data.FileInput;
+
+  editIndex = index;
 }
 
 function deleteRow(index) {
